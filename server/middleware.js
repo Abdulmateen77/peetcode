@@ -6,7 +6,7 @@ module.exports = {
     auth: (req, res, next) => {
         const authHeader = req.headers["authorization"];
         if (!authHeader) {
-            return res.status(403).json({msg: "Missing auth header"});
+            return res.status(403).json({msg: "Missing authentication header"});
         }
         const decoded = jwt.verify(authHeader, JWT_SECRET);
         if (decoded && decoded.id) {
